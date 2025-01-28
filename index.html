@@ -269,8 +269,7 @@
                 const result = await response.json();
                 if (result?.message) {
                     showToast(result.message);
-                    window.location.href = "https://matchmaker-aadhaar-verifification.vercel.app";
-                    window.location.reload();
+                  
                 } else {
                     showToast('OTP Failed To Match.');
                 }
