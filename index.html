@@ -61,7 +61,7 @@
         <div id="aadharContainer" class="absolute top-24 left-0 justify-center text-center object-contain rounded-full">
             <div class="text-[#D4A84D] text-2xl font-bold mb-2">Identity Verification</div>
             <div class="text-white text-base">Request for identity verification by sending a text request</div>
-            <form id="aadharForm" class="my-4 flex flex-col justify-center items-start w-full max-w-md p-3">
+            <form id="aadharForm" class="my-4 flex flex-col justify-center items-start w-full max-w-md p-5">
                 <label for="aadhar" class="text-sm font-medium mb-2">
                     Aadhaar Number
                 </label>
@@ -70,7 +70,7 @@
                         <img src="./assets/aadhaar-logo-5FCB1D69EB-seeklogo 1.png" alt="Aadhar Icon" class="w-6 h-6">
                     </span>
                     <input id="aadhar" type="number" placeholder="Enter your Aadhaar number"
-                        class="text-black w-full pl-10 p-3 rounded-full border border-gray-300 focus:ring focus:ring-[#D4A84D] focus:outline-none"
+                        class="text-black w-full pl-10 p-3 rounded-lg border border-gray-300 focus:ring focus:ring-[#D4A84D] focus:outline-none"
                         required
                         oninput="this.setCustomValidity(''); validateAadhar(); if (this.value.length > 12) this.value = this.value.slice(0, 12);"
                         oninvalid="this.setCustomValidity('Please enter a 12-digit number');" pattern="\d{12}">
@@ -93,13 +93,13 @@
             class="absolute hidden top-24 left-0 justify-center text-center object-contain rounded-full">
             <div class="text-[#D4A84D] text-2xl font-bold mb-2">Identity Verification</div>
             <div class="text-white text-base">Request for identity verification by sending a text request</div>
-            <form id="otpForm" class="my-4 flex flex-col justify-center items-start w-full max-w-md p-3">
+            <form id="otpForm" class="my-4 flex flex-col justify-center items-start w-full max-w-md p-5">
                 <label for="aadhar" class="text-sm font-medium mb-2">
                     Verify OTP
                 </label>
                 <div class="relative w-full">
                     <input id="otp" type="number" placeholder="Enter OTP here"
-                        class="text-black w-full p-3 rounded-full border border-gray-300 focus:ring focus:ring-[#D4A84D] focus:outline-none"
+                        class="text-black w-full p-3 rounded-lg border border-gray-300 focus:ring focus:ring-[#D4A84D] focus:outline-none"
                         maxlength="6" minlength="6" oninput="this.value = this.value.slice(0, 6);" required>
 
                 </div>
@@ -269,7 +269,8 @@
                 const result = await response.json();
                 if (result?.message) {
                     showToast(result.message);
-                  
+                    window.location.href = "https://matchmaker-aadhaar-verifification.vercel.app";
+                    window.location.reload();
                 } else {
                     showToast('OTP Failed To Match.');
                 }
